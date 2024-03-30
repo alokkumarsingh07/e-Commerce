@@ -2,6 +2,11 @@ import React, { useState } from "react";
 
 function Cart({ cartElements, removeFromCart }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
+
+  const addToCart = (item) => {
+    setCartItems([...cartItems, item]);
+  };
 
   const toggleCart = () => {
     setIsOpen(!isOpen);
@@ -14,14 +19,7 @@ function Cart({ cartElements, removeFromCart }) {
         <div>
           <h2>Cart</h2>
           {cartElements.map((item, index) => (
-            <div
-              key={index}
-              style={{
-                border: "1px solid black",
-                marginBottom: "10px",
-                padding: "10px",
-              }}
-            >
+            <div key={index}>
               <img
                 src={item.imageUrl}
                 alt={item.title}
@@ -30,6 +28,7 @@ function Cart({ cartElements, removeFromCart }) {
               <div>{item.title}</div>
               <div>Price: ${item.price}</div>
               <div>Quantity: {item.quantity}</div>
+              <button onClick={() => addToCart(item)}>Add to Cart</button>
               <button onClick={() => removeFromCart(index)}>Remove</button>
             </div>
           ))}
