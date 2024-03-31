@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
+import Contact from "./components/ContactUs.jsx";
 import {
   RouterProvider,
   createBrowserRouter,
@@ -17,6 +18,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<Layout />}>
       <Route path="" element={<Home />} />
       <Route path="about" element={<About />} />
+      <Route path="contact" element={<Contact />} />
     </Route>
   )
 );

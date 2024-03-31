@@ -15,6 +15,9 @@ export default function Header() {
               <li>
                 <NavLink to="/about">About</NavLink>
               </li>
+              <li>
+                <Link to="/contact">Contact Us</Link>
+              </li>
             </ul>
           </div>
         </div>
